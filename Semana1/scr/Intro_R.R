@@ -1,4 +1,5 @@
 # SEMANA 2 Introducciòn al lenguaje de programaciòn en R
+
 #**Ejer:** Reasigne 5 a la letra *z*, usando el operador *<-*, ahora, pregunte ¿qué es *z*?
  4 -> z
  z <- 5
@@ -9,7 +10,9 @@
   # **Ejer:** multiplique *x* por 2 y sumele 1 y dividalo por 1.5, ese resultado elevelo al cuadrado. Esto se escribe igual que en una calculadora manual.
  x <- 1:10
  (((x*2)+1)/1.5)**2
- #Tener cuidado con el orden de las operaciones
+
+#Tener cuidado con el orden de las operaciones
+
  #**Ejer:** tome cualquier objeto anterior y preguntele la clase
  frases <- 'El gato se comió el fara'
  class(frases)
@@ -57,5 +60,17 @@ rbind(iris[1:5,],iris[10:30,])
 #Busque el archivo suministrado por el profesor, carguelo a R y revise qué contien. Extraiga las 5 primeras columnas con las 10 primeras filas, escriba esa nueva matriz como csv en su computador.
 
 #Descargar Araceae https://datadryad.org/stash/dataset/doi:10.5061/dryad.68n40
+
+#Leer archivo
+
+data <- read.csv('Matrix_Multivariate_Mega.csv', sep = ";", header = T)
+
+
+#Extraer las 5 primeras columnas con las 10 primeras 
+ratan <- data[1:5,1:10]
+
+#Escribir una nueva matriz como cvs en el computador 
+write.csv(x = ratan,file = 'Minimatriz.csv')
+
 
  
