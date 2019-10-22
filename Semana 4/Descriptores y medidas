@@ -61,4 +61,26 @@ legend(x = "topright", # location of legend within plot area
        col = c("chocolate3", "royalblue", "red","green"),
        lwd = c(2, 2, 2, 2))
        
+       #**Ejer:** Genere los cuantiles en intervalos de 0.5
+
+quantile(setosa,probs = c(seq(0, 1, 0.5)))
+         
+#**Ejer:** ¿Qué sucede si el número de columnas deseado no se especifica? 
+
+#Al probar que sucede si no se coloca el número de columnas , encontramos lo siguiente 
+aggregate(iris, list(Especies = iris$Species), mean)
+# Dando como resultado  NA debido a que el argumento que contiene no es ni numerico ni logico,
+#por lo cual es importante colocar el numero de columnas para que se puede extraer
+
+##Obtenga la mediana, la moda y los cuantiles para cada especie de iris y para cada variable morfométrica.
+ 
+#Mediana de Virginica con cada variable morfométrica
+VirginicaPL <- iris$Petal.Length[which(iris$Species=='virginica')]
+median(VirginicaPL)
+VirginicaPW <- iris$Petal.Width[which(iris$Species=="virginica")]
+median(VirginicaPW)
+VirginicaSL <-iris$Sepal.Length[which(iris$Species=="virginica")]
+median(VirginicaSL)
+VirginicaSW <-iris$Sepal.Width[which(iris$Species=="virginica")]  
+median(VirginicaSW)
        
