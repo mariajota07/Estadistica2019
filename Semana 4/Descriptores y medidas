@@ -145,3 +145,16 @@ quantile(SetosaPL)
 quantile(SetosaPW)
 quantile(SetosaSL)
 quantile(SetosaSW)
+
+#Todo lo anterior realizado se puede resumir usando la funcion aggregate 
+
+aggregate(iris [,1:4], list(Especies = iris$Species), median)
+
+aggregate(iris [,1:4], list(Especies = iris$Species), mi.moda)
+
+aggregate(iris [,1:4], list(Especies = iris$Species), quantile)
+
+
+#**Ejer:** grafique la distribuciÃ³n de frecuencias de cada poblaciÃ³n
+#usando histograma y densidad en el mismo grÃ¡fico. Adiciones la media,
+#la mediana y la moda.
