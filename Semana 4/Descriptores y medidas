@@ -238,7 +238,107 @@ legend(x = "topright", # location of legend within plot area
        col = c("yellow", "mediumspringgreen", "orangered", "blueviolet"),
        lwd = c(2, 2, 2))
 
+#**Ejer:** Lea el resumen y las gráficas del articulo de Magund 2007. Cargue los datos llamados '2007_EAA_Magud_et_al_data.csv' usando la función read.csv().
+#Estime todos los estadísticos vistos en esta práctica para las variables 'body length', 'tubercles 1b apart' y 'tarsus I length'.
+#Grafique sus análisis y exportelos usando las funciones PNG o PDF. Escriba un párrafo de no más de 200 analizando lo que encontró. Tenga en cuenta que solo describir las salidas implica descripción de resultados no análisis.
 
+library(readr)
+Magud_data <- read_csv("C:/Users/maria/Downloads/ESTADISTICA LAB/SEMANA 4/2007_EAA_Magud_et_al_data.csv")
+
+bodylength <- Magud_data$A
+mean(bodylength)#Media
+harmonic.mean(bodylength)#Media armonica
+geometric.mean(bodylength)#Media geometrica
+mi.moda(bodylength) #Moda
+freq <- table(bodylength)
+freq
+
+freq[which.max(freq)]
+mi.mediana(bodylength)#Mediana
+
+# Rango = x
+range(bodylength)
+
+# Freq = y
+min(freq)
+max(freq)
+
+# distribución de frecuencias de body length
+hist(bodylength, # histogram
+     col = "darkseagreen1", # column color
+     border = "black", 
+     prob = TRUE, # show densities instead of frequencies
+     xlim = c(140,250),
+     xlab = "Body",
+     main = "Body length")
+lines(density(bodylength),
+      lwd = 2, # thickness of line
+      col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+abline(v = mean(bodylength),
+       col = "royalblue",
+       lwd = 2)
+
+abline(v = median(bodylength),
+       col = "red",
+       lwd = 2)
+abline(v= 149.58 , 
+       col="deeppink4",
+       lwd=2)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot", "Mean", "Median","Moda"),
+       col = c("chocolate3", "royalblue", "red", "deeppink4"),
+       lwd = c(2, 2, 2,2))
+
+#'tubercles 1b apart
+Tubercles1b <- Magud_data$P
+mean(Tubercles1b)#Media
+harmonic.mean(Tubercles1b)#Media armonica
+geometric.mean(Tubercles1b)#Media geometrica
+mi.moda(Tubercles1b) #Moda
+freq <- table(Tubercles1b)
+freq
+
+freq[which.max(freq)]
+mi.mediana(Tubercles1b)#Mediana
+
+# Rango = x
+range(Tubercles1b)
+
+# Freq = y
+min(freq)
+max(freq)
+
+# distribución de frecuencias de Tublercles1b 
+hist(Tubercles1b, # histogram
+     col = "lightcyan", # column color
+     border = "black", 
+     prob = TRUE, # show densities instead of frequencies
+     xlim = c(6,16.5),
+     xlab = "Tuberclues",
+     main = "Tuberclues 1b")
+lines(density(Tubercles1b),
+      lwd = 2, # thickness of line
+      col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+abline(v = mean(Tubercles1b),
+       col = "royalblue",
+       lwd = 2)
+
+abline(v = median(Tubercles1b),
+       col = "red",
+       lwd = 2)
+abline(v= 10.78 , 
+       col="deeppink4",
+       lwd=2)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot", "Mean", "Median","Moda"),
+       col = c("chocolate3", "royalblue", "red", "deeppink4"),
+       lwd = c(2, 2, 2,2))
 
 
 
