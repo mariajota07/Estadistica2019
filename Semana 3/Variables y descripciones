@@ -118,3 +118,57 @@ xsp[x]
 max(xsp)
 y <- which.max(xsp)
 xsp[y]
+
+#**Ejer:** Repita el ejercicio para las variables continuas de tamaño de pico y tamaño del ala en el género *Corvus*.
+#Busque cómo cambiar colores, ejes y algunas propiedades que le permitan mejorar el diseño del histograma.
+
+
+# Tamaño del pico 
+
+range(corvus$bill)
+
+#Como primer paso generamos las cajas 
+caja1 <- seq(44,90,5)
+
+# Segundo paso agrupar los datos en las cajas
+
+datos<- cut(corvus$bill,caja1)
+
+# Tercer paso generar una tabla de frecuencias
+freq_bill <-table(datos)
+
+# Posteriormente usamos transfrom para generar un data.frame de frecuencias
+transform(freq_bill)
+
+
+# Histograma de bill procedende de Corvus
+
+hist(corvus$bill, breaks = caja1, main = "Longitud de los picos", col=rainbow(7), xlab = "Picos")
+
+
+#Ahora con el tamaño del ala en el genero *Corvus*
+range(corvus$wing)
+
+#Como primer paso generamos las cajas 
+bins <- seq(225,480, 25)
+
+# Segundo paso agrupar los datos en las cajas
+
+datos01 <- cut(corvus$wing,bins)
+
+
+
+# Tercer paso generar una tabla de frecuencias
+freq_wing <-table(datos01)
+
+# Posteriormente usamos transfrom para generar un data.frame de frecuencias
+
+transform(freq_wing)
+
+
+# Histograma de bill procedende de Corvus
+
+  hist(corvus$wing, breaks = bins, main = "Longitudes de alas del genero Corvus", xlab = "Longitud de alas (mm)",col = terrain.colors(7))
+
+
+
