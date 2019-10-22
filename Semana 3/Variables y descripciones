@@ -1,0 +1,120 @@
+##**Ejer:** ¿Que clase de objeto es BIC?
+class(BIC)
+
+#¿Qué clase de objeto es geospiza? use la función *str* para obtener información sobre la estructura.
+str(geospiza)
+class(geospiza)
+# como observamos geospiza es de la clase listas debido a que presenta
+# diferentes clases y tipos de objetos 
+
+
+#**Ejer:** ¿Qué tipo de variable es tarsusL y qué clase? 
+class(geospiza$tarsusL)
+#Abra el objeto *tortues* y mire ¿Qué tipo de variables tiene y qué clase son?,
+
+
+View(tortues)
+# Tiene variables variables de tipo cuantitativo y cualitativo de tipo continuo y nominal
+class(tortues$long)
+class(tortues$larg)
+class(tortues$haut)
+class(tortues$sexe)
+
+#haga lo mismo con el objeto *mite.env* y revise ¿Qué tipo de variable es *shurb* y qué clase es? Recuerde siempre usar help para saber de donde vienen los datos.
+
+View(mite.env)
+class(mite.env$Shrub)
+
+#**Ejer:** usando el data.frame *tortues* calcule la proporción de hembras y machos de la muestra
+View(tortues)
+M <- length(which(tortues$sexe== "M"))
+M
+
+F <- length(which(tortues$sexe == "F"))
+F
+
+#Como podemos observar es una poblacion que tiene igual número de machos y hembras
+
+#**Ejer:** usando el data.frame *tortues* calcule la proporción entre el ancho y el largo del caparazón,
+#genere una tabla con la información de *tortues* y la nueva variable derivada.
+
+
+long <- (tortues$long)
+
+long
+larg <- (tortues$larg)
+larg
+
+ medidas <- cbind(tortues$long,tortues$larg)
+ tabla_medidas <- as.data.frame(cbind(paste('spp',sep = '_'),medidas))
+ 
+ tabla_medidas
+ 
+ 
+ 
+ #Para asignarle los nombres a las columnas
+ 
+ colnames(tabla_medidas) <- c( "Individuos","long","larg")
+ 
+ 
+ tabla_medidas
+ 
+
+ #Realizamos la relacion del long/Larg
+ prp<-long/larg
+ 
+ prp 
+ 
+ 
+ #Creamos la nueva tabla con la información de *tortues* y la nueva variable derivada que es la relacion entre long/larg
+ Tabla_medidas_prp <- cbind.data.frame(tabla_medidas, prp)
+ 
+ Tabla_medidas_prp 
+ 
+ #**Ejer:** ¿Cuántas especies de *Corvus* fueron muestreadas en la región Paleártica-Africana? Use el data.frame del género *Corvus*.
+ 
+ freq <- table(corvus$phylog)
+freq 
+# Como observamos al hallar la frecuencia, fueron muestreadas 9 especies de corvus en la region Paleàrtica-Africana 
+
+#¿Qué porcentaje de *Corvus* muestreados habitan zonas abiertas
+freq1 <- table(corvus$habitat)
+freq1
+# Fracción
+prop.table(freq1)*100
+
+# Incluso podemos observar los porcentajes en una grafica 
+pie(prop.table(freq1))
+ 
+#**Ejer:** ¿Cómo luce el gráfico de frecuencias para los tipos de hábitat del género *Corvus*?
+
+plot(freq1)
+
+# Sumar las ocurrencias de cada especie
+atlas$birds
+
+xsp<- apply(atlas$birds,2,sum)
+
+# Preguntar cuál es el mínimo 
+min(xsp)
+
+
+which.min(xsp)
+
+
+xsp[which.min(xsp)]
+
+# podríamos generar vectores
+
+min(xsp)
+
+x <- which.min(xsp)
+
+
+xsp[x]
+
+
+#**Ejer:** encuentre el máximo, así como lo hizo para el mínimo
+max(xsp)
+y <- which.max(xsp)
+xsp[y]
