@@ -158,3 +158,73 @@ aggregate(iris [,1:4], list(Especies = iris$Species), quantile)
 #**Ejer:** grafique la distribuciÃ³n de frecuencias de cada poblaciÃ³n
 #usando histograma y densidad en el mismo grÃ¡fico. Adiciones la media,
 #la mediana y la moda.
+
+# voy a campo y mido dos poblaciones de pájaros
+pop1 <-abs(rnorm(500,mean = 120,sd = 25))
+pop1
+range(pop1)
+
+min(pop1)
+max(pop1)
+
+pop2 <-abs(rnorm(500,mean = 200,sd = 25))
+range(pop2
+      )
+
+pops<-cbind(pop1,pop2)
+pops
+
+
+# distribución de frecuencias de pop1
+hist(pop1, # histogram
+     col = "peachpuff", # column color
+     border = "black",
+     
+     xlim = c(min(pop1),max(pop1)),
+     xlab = "Longitud de las colas ",
+     
+     main = "Longitud de las colas de la pop1")
+lines(density(pop1),
+      lwd = 2, # thickness of line
+      col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+abline(v = mean(pop1),
+       col = "royalblue",
+       lwd = 2)
+
+abline(v = median(pop1),
+       col = "red",
+       lwd = 2)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot", "Mean", "Median"),
+       col = c("chocolate3", "royalblue", "red"),
+       lwd = c(2, 2, 2))
+
+····
+
+# distribución de frecuencias de pop2
+hist(pop2, # histogram
+     col = "lightcoral", # column color
+     border = "black",
+     xlim = c(120,270),
+     xlab = "Longitud de las colas",
+     main = "Longitud de las colas de la pop2")
+lines(density(pop2),
+      lwd = 2, # thickness of line
+      col = "yellow") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+abline(v = mean(pop2),
+       col = "mediumspringgreen",
+       lwd = 2)
+
+abline(v = median(pop2),
+       col = "orangered",
+       lwd = 2)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot", "Mean", "Median"),
+       col = c("yellow", "mediumspringgreen", "orangered"),
+       lwd = c(2, 2, 2))
