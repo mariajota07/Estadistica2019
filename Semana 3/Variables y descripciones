@@ -170,5 +170,29 @@ transform(freq_wing)
 
   hist(corvus$wing, breaks = bins, main = "Longitudes de alas del genero Corvus", xlab = "Longitud de alas (mm)",col = terrain.colors(7))
 
+#Invente unos datos de medidas, como se hizo en el caso de los cráneos, 
+#y genere todo el ejercicio hasta el histograma
+  
+Ancho <- rnorm(80, mean = 22, sd=1 )
+Ancho
+
+Largo <- rnorm(80,mean = 17,sd=1)
+Largo
+
+ALAS <- cbind(Largo,Ancho)
+ALAS
+
+#Relacion entre el largo/ancho
+proporcion <- Largo/Ancho
+proporcion
+
+Tabla_ALAS <- cbind.data.frame(Largo,Ancho,proporcion)
+Tabla_ALAS
+
+range(Tabla_ALAS$proporcion)
+caja2 <- seq(0.60,1,0.10)
+
+hist(Tabla_ALAS$proporcion, breaks = caja2,main = "Proporcion largo/ancho de las alas ", xlab = "Largo/Ancho", col = "pink")
+
 
 
