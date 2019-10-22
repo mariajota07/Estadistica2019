@@ -175,6 +175,9 @@ pops<-cbind(pop1,pop2)
 pops
 
 
+
+
+
 # distribución de frecuencias de pop1
 hist(pop1, # histogram
      col = "peachpuff", # column color
@@ -185,22 +188,25 @@ hist(pop1, # histogram
      
      main = "Longitud de las colas de la pop1")
 lines(density(pop1),
-      lwd = 2, # thickness of line
+      lwd = 1, # thickness of line
       col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
 
 # Graficar la media
 abline(v = mean(pop1),
        col = "royalblue",
-       lwd = 2)
+       lwd = 1)
 
 abline(v = median(pop1),
        col = "red",
-       lwd = 2)
+       lwd = 1)
+abline(v= mi.moda(pop1),
+       col="skyblue2",
+       lwd= 1)
 
 legend(x = "topright", # location of legend within plot area
-       c("Density plot", "Mean", "Median"),
-       col = c("chocolate3", "royalblue", "red"),
-       lwd = c(2, 2, 2))
+       c("Density plot", "Mean", "Median", "Moda"),
+       col = c("chocolate3", "royalblue", "red", "skyblue2"),
+       lwd = c(2, 2, 2,2))
 
 ····
 
@@ -223,8 +229,16 @@ abline(v = mean(pop2),
 abline(v = median(pop2),
        col = "orangered",
        lwd = 2)
+abline(v= mi.moda(pop2), 
+       col="blueviolet",
+       lwd= 2)
 
 legend(x = "topright", # location of legend within plot area
-       c("Density plot", "Mean", "Median"),
-       col = c("yellow", "mediumspringgreen", "orangered"),
+       c("Density plot", "Mean", "Median", "Moda"),
+       col = c("yellow", "mediumspringgreen", "orangered", "blueviolet"),
        lwd = c(2, 2, 2))
+
+
+
+
+
