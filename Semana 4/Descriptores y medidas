@@ -97,3 +97,51 @@ quantile(VirginicaPL)
 quantile(VirginicaPW)
 quantile(VirginicaSL)
 quantile(VirginicaSW)
+
+#VERSICOLOR 
+VersicolorPL <- iris$Petal.Length[which(iris$Species=='versicolor')]
+VersicolorPW <- iris$Petal.Width[which(iris$Species=="versicolor")]
+VersicolorSL <-iris$Sepal.Length[which(iris$Species=="versicolor")]
+VersicolorSW <-iris$Sepal.Width[which(iris$Species=="versicolor")]  
+
+#Mediana de Versicolor 
+mi.mediana(VersicolorPL)
+mi.mediana(VersicolorPW)
+mi.mediana(VersicolorSL)
+mi.mediana(VersicolorSW)
+
+#Moda de versicolor
+mi.moda(VersicolorPL)
+mi.moda(VersicolorPW)
+mi.moda(VersicolorSL)
+mi.moda(VersicolorSW)
+
+#Cuantil de versicolor 
+quantile(VersicolorPL)
+quantile(VersicolorPW)
+quantile(VersicolorSL)
+quantile(VersicolorSW)
+
+#SETOSA
+SetosaPL <- iris$Petal.Length[which(iris$Species=='setosa')]
+SetosaPW <- iris$Petal.Width[which(iris$Species=="setosa")]
+SetosaSL <-iris$Sepal.Length[which(iris$Species=="setosa")]
+SetosaSW <-iris$Sepal.Width[which(iris$Species=="setosa")]  
+
+#Mediana de setosa
+mi.mediana(SetosaPL)
+mi.mediana(SetosaPW)
+mi.mediana(SetosaSL)
+mi.mediana(SetosaSW)
+
+#Moda de setosa
+mi.moda(SetosaPL)
+mi.moda(SetosaPW)
+mi.moda(SetosaSL)
+mi.moda(SetosaSW)
+
+#Quantil de setosa
+quantile(SetosaPL)
+quantile(SetosaPW)
+quantile(SetosaSL)
+quantile(SetosaSW)
