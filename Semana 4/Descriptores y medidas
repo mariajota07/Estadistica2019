@@ -74,6 +74,8 @@ aggregate(iris, list(Especies = iris$Species), mean)
 
 ##Obtenga la mediana, la moda y los cuantiles para cada especie de iris y para cada variable morfométrica.
  
+#VIRGINICA
+
 #Mediana de Virginica con cada variable morfométrica
 VirginicaPL <- iris$Petal.Length[which(iris$Species=='virginica')]
 median(VirginicaPL)
@@ -83,4 +85,15 @@ VirginicaSL <-iris$Sepal.Length[which(iris$Species=="virginica")]
 median(VirginicaSL)
 VirginicaSW <-iris$Sepal.Width[which(iris$Species=="virginica")]  
 median(VirginicaSW)
-       
+
+#Moda de Virginica con cada varibale morfométrica
+mi.moda(VirginicaPL)
+mi.moda(VirginicaPW)
+mi.moda(VirginicaSL)
+mi.moda(VirginicaSW)
+
+#Cuantiles de Virginica con cada variable morfométrica
+quantile(VirginicaPL)
+quantile(VirginicaPW)
+quantile(VirginicaSL)
+quantile(VirginicaSW)
