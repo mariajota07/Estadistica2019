@@ -1,1 +1,93 @@
+#Ejer: ¿Cúal es la probabilidad de que 3 sean de fenotipo blanco?
+pbinom(5,size=8 , prob = 0.25) # Debido a que el porcentaje de que salga blanco es de 0.25
+
+#Ejer:  ¿Cúal es la probabilidad de encontrar 6 semillas por bloque?, 
+
+dpois(x = 6,lambda = 1.5)
+
+#si el terreno es más pequeño (2x2m) y el promedio de semillas por bloque es de 10
+#Grafique todos los eventos de 0 a 50
+
+plot(dpois(x=0:50,lambda = 10))
+
+
+#Ejer: A partir del tortues del paquete ade4, calcule el promedio y la desviación estándar de las alturas de caparazones de las tortugas. 
+data("tortues")
+tortues
+promedioaltura <- mean(tortues$haut)
+promedioaltura
+
+desviacionEstandaraltura <- sd(tortues$haut)
+desviacionEstandaraltura
+
+#Haga el análisis por sexo y grafíquelo.
+tortues_M_Altura <- tortues$haut[which(tortues$sexe=="M")]
+range(tortues_M_Altura)
+mi.moda(tortues_M_Altura)
+tortues_F_Altura <- tortues$haut[which(tortues$sexe=="F")]
+
+#Iniciaremos por analizar la altura de trotugas macho 
+hist(tortues_M_Altura, # histogram
+     col = "lemonchiffon", # column color
+     border = "black",
+     prob = TRUE, # show densities instead of frequencies
+    xlim = c(33,50),
+     xlab = "Altura",
+     main = "Altura de tortugas de sexo macho")
+lines(density(tortues_M_Altura),
+      lwd = 2, # thickness of line
+      col = "coral") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+abline(v = mean(tortues_M_Altura),
+       col = "mediumspringgreen",
+       lwd = 2)
+
+abline(v = median(tortues_M_Altura),
+       col = "cyan",
+       lwd = 2)
+
+abline(v= 41, 
+       col="blueviolet",
+       lwd= 2 )
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot", "Mean", "Median", "Moda"),
+       col = c("coral", "mediumspringgreen", "cyan", "blueviolet"),
+       lwd = c(2, 2, 2))
+# Ahora relaizaremos el analisis de tortugas hembras
+
+tortues_F_Altura <- tortues$haut[which(tortues$sexe=="F")]
+mi.moda(tortues_F_Altura)
+range(tortues_F_Altura)
+
+hist(tortues_F_Altura, 
+     col = "lavenderblush",
+     border = "black",
+     prob=T,
+     xlim = c(33,75),
+     xlab = "Altura",
+     main = "Altura de tortugas de sexo hembra")
+lines(density(tortues_F_Altura),
+      lwd = 2, # thickness of line
+      col = "coral") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+
+# Graficar la media
+abline(v = mean(tortues_F_Altura),
+       col = "mediumspringgreen",
+       lwd = 2)
+
+abline(v = median(tortues_F_Altura),
+       col = "cyan",
+       lwd = 2)
+
+abline(v= 51, 
+       col="blueviolet",
+       lwd= 2 )
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot", "Mean", "Median", "Moda"),
+       col = c("coral", "mediumspringgreen", "cyan", "blueviolet"),
+       lwd = c(2, 2, 2))
 
