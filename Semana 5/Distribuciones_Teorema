@@ -94,8 +94,9 @@ legend(x = "topright", # location of legend within plot area
 #Ejer: Lea el artículo sobre tipos de crecimientos poblacionales y 
 #escriba el código en R que mejor describa el ejemplo de las bacterias en crecimiento exponencial.
 
-poblacion_1_bacterias <- 2000
-t <- 0:24
-poblacion_1_bacterias_t <- poblacion_1_bacterias*(2)^ t
+poblacion_1_bacterias <- 1000 # Población inicial 
+t <- 0:24 # Tiempo 
+poblacion_1_bacterias_t <- poblacion_1_bacterias*(2)^ t # Funcion exponencial del crecimeinto de bacterias 
+poblacion_1_bacterias_t 
 
-poblacion_1_bacterias_t
+
