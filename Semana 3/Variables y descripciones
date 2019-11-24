@@ -10,10 +10,11 @@ class(geospiza)
 
 #**Ejer:** ¿Qué tipo de variable es tarsusL y qué clase? 
 class(geospiza$tarsusL)
+# tarsusL es un tipo de variable numeric
+
 #Abra el objeto *tortues* y mire ¿Qué tipo de variables tiene y qué clase son?,
-
-
 View(tortues)
+
 # Tiene variables variables de tipo cuantitativo y cualitativo de tipo continuo y nominal
 class(tortues$long)
 class(tortues$larg)
