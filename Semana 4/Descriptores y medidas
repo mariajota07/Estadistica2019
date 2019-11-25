@@ -4,6 +4,21 @@
 #Si la columna iris$Petal.Length tuviera valores NA se deberia usar 
 #la funcion  na.rm = T
 
+#Estime la media aritmética de la altura, la longitud y el ancho del caparazón de las tortugas pintadas [data(tortues), paquete: *ade4*], 
+#use la función apply para obtener los estadísticos de cada medida en un mismo vector.
+
+library(ade4)
+data(tortues)
+height<-tortues[,3]
+long <-tortues[,1]
+larg<-tortues[,2]
+t <-cbind(height,long, larg)
+tortugas<-apply(X = t, MARGIN =2 , FUN = mean, na.rm=T)
+tortugas
+
+ # height      long      larg #
+ # 46.14583 124.68750  95.50000 
+
 
 #**Ejer:** Genere una función propia que le permita encontrar la mediana,
 #tal y como lo hizo con la media aritmética.
@@ -51,8 +66,9 @@ abline(v = mean(setosa),
 abline(v = median(setosa),
        col = "red",
        lwd = 2)
+       
 #Graficar la moda
-abline(v=mode(setosa),
+abline(v=mi.moda(setosa),
        col="green",
        lwd=2)
 
@@ -61,7 +77,7 @@ legend(x = "topright", # location of legend within plot area
        col = c("chocolate3", "royalblue", "red","green"),
        lwd = c(2, 2, 2, 2))
        
-       #**Ejer:** Genere los cuantiles en intervalos de 0.5
+#**Ejer:** Genere los cuantiles en intervalos de 0.5
 
 quantile(setosa,probs = c(seq(0, 1, 0.5)))
          
@@ -148,10 +164,11 @@ quantile(SetosaSW)
 
 #Todo lo anterior realizado se puede resumir usando la funcion aggregate 
 
+#MEDIANA
 aggregate(iris [,1:4], list(Especies = iris$Species), median)
-
+#MODA
 aggregate(iris [,1:4], list(Especies = iris$Species), mi.moda)
-
+#CUANTILES
 aggregate(iris [,1:4], list(Especies = iris$Species), quantile)
 
 
@@ -168,14 +185,10 @@ min(pop1)
 max(pop1)
 
 pop2 <-abs(rnorm(500,mean = 200,sd = 25))
-range(pop2
-      )
+range(pop2)
 
 pops<-cbind(pop1,pop2)
 pops
-
-
-
 
 
 # distribución de frecuencias de pop1
