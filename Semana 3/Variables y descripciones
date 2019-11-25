@@ -188,20 +188,12 @@ xsp<- apply(atlas$birds,2,sum)
 
 # Preguntar cuál es el mínimo 
 min(xsp)
-
-
 which.min(xsp)
-
-
 xsp[which.min(xsp)]
 
 # podríamos generar vectores
-
 min(xsp)
-
 x <- which.min(xsp)
-
-
 xsp[x]
 
 
@@ -222,7 +214,6 @@ range(corvus$bill)
 caja1 <- seq(44,90,5)
 
 # Segundo paso agrupar los datos en las cajas
-
 datos<- cut(corvus$bill,caja1)
 
 # Tercer paso generar una tabla de frecuencias
@@ -233,7 +224,6 @@ transform(freq_bill)
 
 
 # Histograma de bill procedende de Corvus
-
 hist(corvus$bill, breaks = caja1, main = "Longitud de los picos", col=rainbow(7), xlab = "Picos")
 
 
@@ -253,7 +243,6 @@ datos01 <- cut(corvus$wing,bins)
 freq_wing <-table(datos01)
 
 # Posteriormente usamos transfrom para generar un data.frame de frecuencias
-
 transform(freq_wing)
 
 
