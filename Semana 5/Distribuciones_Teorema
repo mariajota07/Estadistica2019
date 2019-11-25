@@ -100,3 +100,35 @@ poblacion_1_bacterias_t <- poblacion_1_bacterias*(2)^ t # Funcion exponencial de
 poblacion_1_bacterias_t 
 
 
+###**Ejer:** Simule 5000 peces de criadero en un tanque, todos son de la misma cohorte. Imagine que los organiza en fila y quiere seleccionar 100 para calcular estadísticos de la población. 
+#Haga un muestreo sistemático y calcule los estadísticos y descriptivos vistos anteriormente. Grafique.
+
+###MUESTREO PECES
+pesopeces= abs(rnorm(5000, 10, 1))
+?rnorm
+pesopeces
+
+###MUESTREO SISTEMATICO
+N<- 5000
+n<- 100
+K<- N/n
+k
+
+###PRIMERO
+sample(1:K, 1)
+?seq
+grupo<- seq(10, 5000, 50)
+grupo
+str(grupo)
+
+###MUESTREO
+estadisticos<- pesopeces[grupo]
+estadisticos
+
+##ESTADISTICOS
+density(estadisticos)
+
+###HISTOGRAMA
+hist(estadisticos, main="DISTRIBUCIÓN DE PESOS DE PECES", xlab= "Peso", ylab="Frecuencia", col= "green")
+
+
