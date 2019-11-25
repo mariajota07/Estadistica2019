@@ -275,4 +275,22 @@ caja2 <- seq(0.60,1,0.10)
 hist(Tabla_ALAS$proporcion, breaks = caja2,main = "Proporcion largo/ancho de las alas ", xlab = "Largo/Ancho", col = "pink")
 
 
+#Busque otro tipo de distribuciones para generar las variables  
+#Busque en qué casos sirve cada distribución o para qué se usan.
 
+#Distribución binomial
+#En general la distribución binomial describe el comportamiento de una variable  X
+#que cuenta número de éxitos tal que: 1) el número de observaciones  n
+#esta fijo, 2) cada observación es independiente, 3) cada observación representa uno de dos posibles eventos (éxito o fracaso) y 
+#3) la probabilidad de éxito  p es la misma en cada observación.
+
+#Distribución Poisson
+#La distribución Poisson se utiliza con frecuencia para modelar conteos de eventos raros, por ejemplo
+#número de accidentes de tráfico. La distribución Poisson es un caso límite de la distribución binomial 
+#cuando el número de casos es muy grande y la probabilidad de éxito  p es chica.
+
+# Distribución hipergeométrica.
+# La distribución hipergeométrica viene a cubrir esta necesidad de modelar procesos de Bernouilli
+#con probabilidades no constantes (sin reemplazamiento).
+#es especialmente útil en todos aquellos casos en los que se extraigan muestras o se realicen experiencias 
+#repetidas sin devolución del elemento extraído o sin retornar a la situación experimental inicial.
