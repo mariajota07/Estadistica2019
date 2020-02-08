@@ -36,7 +36,7 @@ mi.mediana <-function(y){
 mi.moda <- function (n){
   x <- table (n)
   moda <- x [which.max(x)]
-  return(mode) 
+  return(moda) 
 }
 
 #**Ejer:** Después de generar la función del cálculo de moda, grafíquela sobre el histograma.
