@@ -251,71 +251,6 @@ legend(x = "topright", # location of legend within plot area
        col = c("yellow", "mediumspringgreen", "orangered", "blueviolet"),
        lwd = c(2, 2, 2))
 
-#**Ejer:** Lea el resumen y las gráficas del articulo de Magund 2007. Cargue los datos llamados '2007_EAA_Magud_et_al_data.csv' usando la función read.csv().
-#Estime todos los estadísticos vistos en esta práctica para las variables 'body length', 'tubercles 1b apart' y 'tarsus I length'.
-#Grafique sus análisis y exportelos usando las funciones PNG o PDF. Escriba un párrafo de no más de 200 analizando lo que encontró. Tenga en cuenta que solo describir las salidas implica descripción de resultados no análisis.
-
-library(readr)
-Magud_data <- read_csv("C:/Users/maria/Downloads/ESTADISTICA LAB/SEMANA 4/2007_EAA_Magud_et_al_data.csv")
-
-bodylength <- Magud_data$A
-mean(bodylength)#Media
-harmonic.mean(bodylength)#Media armonica
-geometric.mean(bodylength)#Media geometrica
-mi.moda(bodylength) #Moda
-freq <- table(bodylength)
-freq
-
-freq[which.max(freq)]
-mi.mediana(bodylength)#Mediana
-
-# Rango = x
-range(bodylength)
-
-# Freq = y
-min(freq)
-max(freq)
-
-# distribución de frecuencias de body length
-hist(bodylength, # histogram
-     col = "darkseagreen1", # column color
-     border = "black", 
-     prob = TRUE, # show densities instead of frequencies
-     xlim = c(140,250),
-     xlab = "Body",
-     main = "Body length")
-lines(density(bodylength),
-      lwd = 2, # thickness of line
-      col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
-
-# Graficar la media
-abline(v = mean(bodylength),
-       col = "royalblue",
-       lwd = 2)
-
-abline(v = median(bodylength),
-       col = "red",
-       lwd = 2)
-abline(v= 149.58 , 
-       col="deeppink4",
-       lwd=2)
-
-legend(x = "topright", # location of legend within plot area
-       c("Density plot", "Mean", "Median","Moda"),
-       col = c("chocolate3", "royalblue", "red", "deeppink4"),
-       lwd = c(2, 2, 2,2))
-
-#'tubercles 1b apart
-Tubercles1b <- Magud_data$P
-mean(Tubercles1b)#Media
-harmonic.mean(Tubercles1b)#Media armonica
-geometric.mean(Tubercles1b)#Media geometrica
-mi.moda(Tubercles1b) #Moda
-freq <- table(Tubercles1b)
-freq
-
-freq[which.max(freq)]
-mi.mediana(Tubercles1b)#Mediana
 
 # Rango = x
 range(Tubercles1b)
@@ -352,6 +287,364 @@ legend(x = "topright", # location of legend within plot area
        c("Density plot", "Mean", "Median","Moda"),
        col = c("chocolate3", "royalblue", "red", "deeppink4"),
        lwd = c(2, 2, 2,2))
+
+#Ejer: Lea el resumen y las gráficas del articulo de Magund 2007. Cargue los datos llamados '2007_EAA_Magud_et_al_data.csv' usando la función read.csv(). Estime todos los estadísticos vistos en esta práctica para las variables 'body length',
+#tubercles 1b apart' y 'tarsus I length'. Grafique sus análisis y exportelos usando las funciones PNG o PDF. Escriba un párrafo de no más de 200 analizando lo que encontró. Tenga en cuenta que solo describir las salidas implica descripción de resultados no análisis.
+library(readr)
+ magud <- read_csv("Estadistica Laboratorio/Semana 4/2007_EAA_Magud_et_al_data.csv")
+ 
+#ESTADISTICOS DE MEDIDAS DE TENDENCIA CENTRAL
+ #Media de body length 
+ mean(magud$A) 
+
+  library(psych)
+ #Media armonica
+ harmonic.mean(magud$A)
+ #Media geometrica
+ geometric.mean(magud$A)
+#Mediana 
+ median(magud$A)
+ #Moda
+ mi.moda <- function (n){
+   x <- table (n)
+   moda <- x [which.max(x)]
+   return(moda) 
+ }
+mi.moda(magud$A)
+
+bodylength <- (magud$A)
+# distribución de frecuencias de Body Length
+
+hist(bodylength, # histogram
+     col = "peachpuff", # column color
+     border = "black", 
+     prob = TRUE, # show densities instead of frequencies
+     xlim = c(140,250),
+     xlab = "Longitud corporal",
+     main = "Frecuencias de longitud corporal de Aceria anthocoptes ")
+lines(density(bodylength),
+      lwd = 2, # thickness of line
+      col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+abline(v = mean(magud$A),
+       col = "royalblue",
+       lwd = 2)
+# Graficra la mediana 
+abline(v = median(magud$A),
+       col = "red",
+       lwd = 2)
+#Graficar la moda
+abline(v = 149.58,
+       col = "pink",
+       lwd = 2)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot", "Mean", "Median","Moda" ),
+       col = c("chocolate3", "royalblue", "red", "pink"),
+       lwd = c(2, 2, 2))
+#MEDIDAS DE POSICION DE BODY LENGTH
+density.default(bodylength)
+quantile(bodylength)
+summary(bodylength)
+
+str(summary(bodylength))
+x <- summary(bodylength)
+x[1]
+
+# distribución de frecuencias de Longitud corporal
+hist(bodylength, # histogram
+     col = "grey80", # column color
+     border = "black", 
+     prob = TRUE, # show densities instead of frequencies
+     xlim = c(140,250),
+     xlab = "Longitud  corporal",
+     main = "Frecuencias de longitud de la longitud corporal de Aceria anthocoptes")
+
+lines(density(bodylength),
+      lwd = 2, # thickness of line
+      col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+
+abline(v = x[2],
+       col = "pink",
+       lwd = 2)
+
+abline(v = x[3],
+       col = "yellow",
+       lwd = 2)
+
+abline(v = x[4],
+       col = "blue",
+       lwd = 2)
+
+abline(v = x[5],
+       col = "red1",
+       lwd = 2)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot","1st Qu", "Mean", "Median","3st Qu" ),
+       col = c("chocolate3", "pink", "yellow", "blue", "red1"),
+       lwd = c(2, 2, 2))
+# MEDIDAS DE DISPERSION DE BODY LENGTH
+
+boxplot(x = bodylength, notch=TRUE,
+        col=(c("gold","darkgreen")),
+        main="Longitud corporal de  Aceria anthocoptes ", xlab="Longitud  corporal")
+# Varianza
+var(bodylength)
+#Desviacion estandar
+sd(bodylength)
+
+#MEDIDAS DE FORMA DE BODY LENGTH
+
+#Asimetria 
+skewness(bodylength, na.rm = F, method = "fisher" )
+
+#MEDIDAS DE APUNTAMIENTO DE BODY LENGTH
+#Curtosis
+kurtosi(bodylength)
+
+
+# Ahora hallaremos los estadisticos para la variable Turbercles 1b part
+
+#ESTADISTICOS DE MEDIDAS DE TENDENCIA CENTRAL
+#Media de Turbercles 1b
+Turbercles1b <- (magud$P)
+
+mean(Turbercles1b) 
+
+library(psych)
+#Media armonica
+harmonic.mean(Turbercles1b)
+#Media geometrica
+geometric.mean(Turbercles1b)
+#Mediana 
+median(Turbercles1b)
+#Moda
+mi.moda <- function (n){
+  x <- table (n)
+  moda <- x [which.max(x)]
+  return(moda) 
+}
+mi.moda(Turbercles1b)
+
+# distribución de frecuencias de Body Length
+range(Turbercles1b)
+
+
+hist(Turbercles1b, # histogram
+     col = "peachpuff", # column color
+     border = "black", 
+     prob = TRUE, # show densities instead of frequencies
+     xlim = c(7,16),
+     xlab = "Separación de tubèrculos 1b",
+     main = "Frecuencias separaciòn de tuberculos 1b ")
+lines(density(Turbercles1b),
+      lwd = 2, # thickness of line
+      col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+abline(v = mean(Turbercles1b),
+       col = "royalblue",
+       lwd = 2)
+
+
+# Graficra la mediana 
+abline(v = median(Turbercles1b),
+       col = "red",
+       lwd = 2)
+#Graficar la moda
+abline(v = 10.78,
+       col = "pink",
+       lwd = 2)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot", "Mean", "Median", "Moda"),
+       col = c("chocolate3", "royalblue", "red","pink"),
+       lwd = c(2, 2, 2))
+#MEDIDAS DE POSICION DE TUBERCULOS 1B 
+density.default(Turbercles1b)
+quantile(Turbercles1b)
+summary(Turbercles1b)
+
+str(summary(Turbercles1b))
+x <- summary(Turbercles1b)
+x[1]
+
+# distribución de frecuencias de TUBERCULOS 1B 
+hist(Turbercles1b, # histogram
+     col = "grey80", # column color
+     border = "black", 
+     prob = TRUE, # show densities instead of frequencies
+     xlim = c(6.5,17),
+     xlab = "Separación de tubérculos 1B",
+     main = "Frecuencias de separación de tubérculos 1B")
+
+lines(density(Turbercles1b),
+      lwd = 2, # thickness of line
+      col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+
+abline(v = x[2],
+       col = "pink",
+       lwd = 2)
+
+abline(v = x[3],
+       col = "yellow",
+       lwd = 2)
+
+abline(v = x[4],
+       col = "blue",
+       lwd = 2)
+
+abline(v = x[5],
+       col = "red1",
+       lwd = 2)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot","1st Qu", "Mean", "Median","3st Qu" ),
+       col = c("chocolate3", "pink", "yellow", "blue", "red1"),
+       lwd = c(2, 2, 2))
+# MEDIDAS DE DISPERSION DE TUBERCULOS 1B
+
+boxplot(x = Turbercles1b, notch=TRUE,
+        col=(c("gold","darkgreen")),
+        main="Tubèrculos 1b ", xlab="Separaciòn de tubèrculos 1b ")
+# Varianza
+var(Turbercles1b)
+#Desviacion estandar
+sd(Turbercles1b)
+
+#MEDIDAS DE FORMA DE TUBERCULOS 1B 
+
+#Asimetria 
+skewness(Turbercles1b, na.rm = F, method = "fisher" )
+
+#MEDIDAS DE APUNTAMIENTO DE BODY LENGTH
+#Curtosis
+kurtosi(Turbercles1b)
+
+# Ahora hallaremos los estadisticos para la variable longitud del tarso I
+
+#ESTADISTICOS DE MEDIDAS DE TENDENCIA CENTRAL
+#Media de longitud del tarso I 
+TarsusIlength <-(magud$W)
+
+mean(TarsusIlength) 
+
+library(psych)
+#Media armonica
+harmonic.mean(TarsusIlength)
+#Media geometrica
+geometric.mean(TarsusIlength)
+#Mediana 
+median(TarsusIlength)
+#Moda
+
+mi.moda(TarsusIlength)
+
+# distribución de frecuencias de Body Length
+range(TarsusIlength)
+
+
+hist(TarsusIlength, # histogram
+     col = "peachpuff", # column color
+     border = "black", 
+     prob = TRUE, # show densities instead of frequencies
+     xlim = c(2.5,10),
+     xlab = "Longitud del tarso I",
+     main = "Frecuencias de las longitudes del tarso I")
+lines(density(TarsusIlength),
+      lwd = 2, # thickness of line
+      col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+abline(v = mean(TarsusIlength),
+       col = "royalblue",
+       lwd = 2)
+
+# Graficra la mediana 
+abline(v = median(TarsusIlength),
+       col = "red",
+       lwd = 2)
+#Graficar la moda
+abline(v = 6.5,
+       col = "pink",
+       lwd = 2)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot", "Mean", "Median", "Moda"),
+       col = c("chocolate3", "royalblue", "red","pink"),
+       lwd = c(2, 2, 2))
+
+#MEDIDAS DE POSICION DE LONGITUD DEL TARSO I 
+density.default(TarsusIlength)
+quantile(TarsusIlength)
+summary(TarsusIlength)
+
+str(summary(TarsusIlength))
+x <- summary(TarsusIlength)
+x[1]
+
+# distribución de frecuencias de longitud del tarso I 
+range(TarsusIlength)
+
+hist(TarsusIlength, # histogram
+     col = "grey80", # column color
+     border = "black", 
+     prob = TRUE, # show densities instead of frequencies
+     xlim = c(3,10),
+     xlab = "Longitud del tarso I",
+     main = "Frecuencias de las longitudes del tarso I")
+
+
+lines(density(TarsusIlength),
+      lwd = 2, # thickness of line
+      col = "chocolate3") # Generar la distribución continua distribución de masa a partir de los datos observados
+
+# Graficar la media
+
+abline(v = x[2],
+       col = "pink",
+       lwd = 2)
+
+abline(v = x[3],
+       col = "yellow",
+       lwd = 2)
+
+abline(v = x[4],
+       col = "blue",
+       lwd = 2)
+
+abline(v = x[5],
+       col = "red1",
+       lwd = 2)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot","1st Qu", "Mean", "Median","3st Qu" ),
+       col = c("chocolate3", "pink", "yellow", "blue", "red1"),
+       lwd = c(2, 2, 2))
+# MEDIDAS DE DISPERSION DE LAS LONGITUDES DEL TARSO I 
+
+boxplot(x = TarsusIlength, notch=TRUE,
+        col=(c("gold","darkgreen")),
+        main="Longitudes del tarso I  ", xlab="Longitudes ")
+# Varianza
+var(TarsusIlength)
+#Desviacion estandar
+sd(TarsusIlength)
+
+#MEDIDAS DE FORMA DE LONGITUDES DEL TARSO I  
+
+#Asimetria 
+skewness(TarsusIlength, na.rm = F, method = "fisher" )
+
+#MEDIDAS DE APUNTAMIENTO DE LONGITUDES DEL TARSO I 
+#Curtosis
+kurtosi(TarsusIlength)
 
 
 
